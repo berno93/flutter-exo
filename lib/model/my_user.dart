@@ -6,9 +6,11 @@ class MyUser {
   late String nom;
   late String prenom;
   late String email;
+  late bool favorite;
   String? avatar;
   DateTime? birthday;
   late Genre genre;
+  
 
 
   MyUser(){
@@ -17,6 +19,7 @@ class MyUser {
     prenom = "";
     email = "";
     genre = Genre.autres;
+    favorite = false;
   }
 
 
@@ -28,6 +31,7 @@ class MyUser {
     email = map["EMAIL"];
     avatar = map["AVATAR"]??defaultImage;
     Timestamp? timestamp = map["BIRTHDAY"];
+    favorite = map["FAVORITE"]??false;
     if(timestamp == null){
       birthday = DateTime.now();
     }
